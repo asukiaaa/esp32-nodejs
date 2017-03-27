@@ -1,0 +1,15 @@
+{
+  "name": "esp32-ble-nodejs",
+  "version": "1.0.0",
+  "description": "A node program to communicate with ESP32 on GATT",
+  "main": "main.js",
+  "dependencies": {
+    "noble": "^1.8.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Asuki Kono",
+  "license": "ISC"
+}
