@@ -33,6 +33,12 @@ noble.on('discover', peri => {
                 console.log("found chara: ", chara.uuid)
                 if (chara.uuid == "ff01") {
                   writeChara = chara
+                  chara.notify(true, (err) => {
+                    console.log('notify err', err)
+                  })
+                  chara.on('data', (data, isNotif) => {
+                    console.log('receoved', data, isNotif)
+                  })
                 }
               })
             })
