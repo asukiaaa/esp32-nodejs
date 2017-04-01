@@ -1,6 +1,8 @@
 'use strict'
 
 const noble = require('noble')
+let ledState = false
+let writeChara
 
 noble.on('stateChange', state => {
   console.log('state change', state)
@@ -10,7 +12,6 @@ noble.on('stateChange', state => {
     noble.stopScanning()
   }
 })
-
 
 noble.on('discover', peri => {
   noble.stopScanning()
@@ -30,7 +31,9 @@ noble.on('discover', peri => {
             service.discoverCharacteristics([], (error, charas) => {
               charas.forEach(chara => {
                 console.log("found chara: ", chara.uuid)
-                chara.write(Buffer([1,0,0,0]))
+                if (chara.uuid == "ff01") {
+                  writeChara = chara
+                }
               })
             })
           }
@@ -39,3 +42,22 @@ noble.on('discover', peri => {
     })
   }
 })
+
+setInterval(() => {
+  ledState = !ledState
+  updateLed(ledState)
+}, 2000)
+
+const updateLed = (value) => {
+  if (!writeChara) {
+    console.log('write characteristic is not found')
+    return
+  }
+  if (value) {
+    console.log('led on')
+    writeChara.write(Buffer([1,0,0,0]))
+  } else {
+    console.log('led off')
+    writeChara.write(Buffer([0,0,0,0]))
+  }
+}
