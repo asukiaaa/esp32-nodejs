@@ -1,5 +1,5 @@
 {
-  "name": "esp32-nodejs",
+  "name": "esp32-nodejs-samples",
   "version": "1.0.0",
   "description": "A node program to communicate with ESP32 on GATT",
   "main": "write-and-listen.js",
