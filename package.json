@@ -2,7 +2,7 @@
   "name": "esp32-nodejs",
   "version": "1.0.0",
   "description": "A node program to communicate with ESP32 on GATT",
-  "main": "main.js",
+  "main": "write-and-listen.js",
   "dependencies": {
     "noble": "^1.8.0"
   },
