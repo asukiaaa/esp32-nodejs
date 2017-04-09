@@ -15,7 +15,7 @@ noble.on('discover', peri => {
   noble.stopScanning()
   const ad = peri.advertisement
   console.log("ad name: ", ad.localName)
-  if (ad.localName == "ESP_GATTS_LED") {
+  if (ad.localName == "ESP_GATTS_SWITCH") {
     console.log("found target esp")
     peri.connect(error => {
       console.log("conected")
