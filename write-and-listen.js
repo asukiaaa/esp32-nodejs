@@ -61,7 +61,7 @@ const updateLed = (value) => {
   }
   if (value) {
     console.log('led on')
-    writeChara.write(Buffer([1,0,0,0]))
+    writeChara.write(Buffer([0xff,0,0,0]))
   } else {
     console.log('led off')
     writeChara.write(Buffer([0,0,0,0]))
